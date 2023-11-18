@@ -32,7 +32,7 @@ public class DemoSecurityConfig {
                                 .anyRequest().authenticated())//any request must be logged in
                 .formLogin(form->form.loginPage("/showMyLoginPage")
                         .loginProcessingUrl("/authenticateTheUser")//no controller request mapping required
-                        .permitAll()).logout(logout->logout.permitAll())
+                        .permitAll()).logout(LogoutConfigurer::permitAll)
                 .exceptionHandling(configurer ->
                         configurer
                                 .accessDeniedPage("/access-denied"));
