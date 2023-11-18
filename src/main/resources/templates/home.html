@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>goffa Home Page 2</title>
+</head>
+<body>
+    <h2>Our Home page</h2>
+    <hr>
+    <p>
+        Welcome to our HOME PAGE 2!
+    </p>
+    <hr>
+        <!--Display user name and role-->
+            User:<span sec:authentication="principal.username"></span>
+    <br><br>
+            Role(s): <span sec:authentication="principal.authorities"></span>
+    <hr>
+    <!--add link to point /leaders this for the managers-->
+    <p>
+       <a th:href="@{/leaders}">Leadership meeting</a>
+        (Only for managers)
+    </p>
+    <p>
+       <a th:href="@{/systems}">IT systems meeting</a>
+        (Only for systems)
+    </p>
+  <!--add logout button"""-->
+    <form   action="#" th:action="@{/logout} " method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
+
+</body>
+</html>
